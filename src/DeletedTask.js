@@ -1,12 +1,12 @@
 import React, {useState,useEffect} from "react";
 import "./App.css"; 
 
-function Shop() {
+function DeletedTask() {
   return (
     <div>
-      <h1>Shop Page</h1>
+      <h1>Deleted Task</h1>
     </div>
   );
 }
 
-export default Shop;
+export default DeletedTask;

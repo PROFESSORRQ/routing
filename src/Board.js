@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
 
-function About() {
+function Board() {
   return (
     <div>
-      <h1>About Page</h1>
+      <h1>Task Board</h1>
     </div>
   );
 }
 
-export default About;
+export default Board;

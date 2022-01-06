@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import Nav from "./Nav";
-import Shop from "./Shop";
-import About from "./About";
+import DeletedTask from "./DeletedTask";
+import Board from "./Board";
 import {
   BrowserRouter as Router,
   Route,
@@ -19,8 +19,8 @@ function App() {
         <Nav></Nav>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route path="/board" element={<Board />} />
+          <Route path="/deletedTask" element={<DeletedTask />} />
         </Routes>
       </div>
     </Router>
