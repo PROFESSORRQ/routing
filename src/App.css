@@ -1,7 +1,22 @@
 .App {
   text-align: center;
 }
-
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background-color: rgb(73, 79, 82);
+  color: white;
+}
+.nav-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +50,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
