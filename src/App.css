@@ -1,11 +1,11 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
+  min-height: 8vh;
   background-color: rgb(73, 79, 82);
   color: white;
 }
@@ -16,6 +16,18 @@ nav{
   align-items: center;
   list-style: none;
 }
+.header{
+  margin-top: 8%;
+}
+
+.labelstorypoints{
+  display: block;
+  font: 1rem 'Fira Sans',sans-serif;
+}
+.labelstorypoints,.inputstorypoints{
+  margin: .4rem 0;
+}
+
 /* 
 .App-logo {
   height: 40vmin;
