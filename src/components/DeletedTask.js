@@ -1,10 +1,14 @@
-import React, {useState,useEffect} from "react";
+import React from "react";
+import DeletedTaskBoard from "./DeleteBoard";
 import "../App.css"; 
 
-function DeletedTask() {
+const DeletedTask=()=> {
   return (
     <div>
-      <h1>Deleted Task</h1>
+      
+      <DeletedTaskBoard></DeletedTaskBoard>
+
+      
     </div>
   );
 }

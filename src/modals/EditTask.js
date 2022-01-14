@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-const CreateTask = ({ modal, toggle,save }) => {
+const EditTaskPopup = ({ modal, toggle,updateTask,taskObj}) => {
   const [taskName, setTaskName] = useState("");
   const [taskAssigne, setTaskAssigne] = useState("");
   const [taskPriority, setTaskPriority] = useState("");
@@ -9,9 +9,9 @@ const CreateTask = ({ modal, toggle,save }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if(name==="taskName"){
-setTaskName(value)
-    }else if (name === "taskPriority") {
+    if (name === "taskName") {
+      setTaskName(value);
+    } else if (name === "taskPriority") {
       setTaskPriority(value);
     } else if (name === "taskTime") {
       setTaskTime(value);
@@ -21,20 +21,30 @@ setTaskName(value)
       setTaskStatus(value);
     }
   };
-
-  const handleSave=()=>{
-    let taskObj={}
-    taskObj["Name"]=taskName
-    taskObj["Assigne"] = taskAssigne;
-    taskObj["Priority"] = taskPriority;
-    taskObj["Time"] = taskTime;
-    taskObj["status"] = taskStatus;
-    save(taskObj)
-  }
+useEffect(()=>{
+    setTaskName(taskObj.Name)
+    setTaskPriority(taskObj.Priority)
+    setTaskStatus(taskObj.status)
+    setTaskTime(taskObj.Time)
+    setTaskAssigne(taskObj.Assigne)
+},[])
+  const handleUpdate = (e) => {
+      e.preventDefault()
+    let tempObj = {};
+    tempObj["Name"] = taskName;
+    tempObj["Assigne"] = taskAssigne;
+    tempObj["Priority"] = taskPriority;
+    tempObj["Time"] = taskTime;
+    tempObj["status"] = taskStatus;
+      updateTask(tempObj);
+      toggle()
+    // save(taskObj);
+  };
+  
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Create Task</ModalHeader>
+        <ModalHeader toggle={toggle}>Update Task</ModalHeader>
         <ModalBody>
           <form action="">
             <div className="form-group">
@@ -47,17 +57,16 @@ setTaskName(value)
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            <div>
               <label for="taskPriority">Priority</label>
               <br></br>
               <select
-                className="form-select"
                 value={taskPriority}
                 onChange={handleChange}
                 name="taskPriority"
                 id="priority"
               >
-                <option selected>Select Priority</option>
+                <option value="">--Please Give Priority--</option>
                 <option value="P0">P0</option>
                 <option value="P1">P1</option>
                 <option value="P2">P2</option>
@@ -66,17 +75,16 @@ setTaskName(value)
                 <option value="P5">P5</option>
               </select>
             </div>
-            <div className="form-group">
+            <div>
               <label for="taskAssigne">Assigne</label>
               <br></br>
               <select
-                className="form-select"
                 value={taskAssigne}
                 onChange={handleChange}
                 name="taskAssigne"
                 id="assigne"
               >
-                <option selected>Select Assigne</option>
+                <option value="">--To Whom--</option>
                 <option value="Sam">Sam</option>
                 <option value="Ansh">Ansh</option>
                 <option value="Rohit">Rohit</option>
@@ -87,13 +95,12 @@ setTaskName(value)
               <label for="taskStatus">StatusOfTask</label>
               <br></br>
               <select
-                className="form-select"
                 value={taskStatus}
                 onChange={handleChange}
                 name="taskStatus"
                 id="taskStatus"
               >
-                <option selected>Select Status</option>
+                <option value="">--Status--</option>
                 <option value="To-Do">To-Do</option>
                 <option value="InProgress">InProgress</option>
                 <option value="Done">Done</option>
@@ -118,8 +125,8 @@ setTaskName(value)
           </form>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={handleSave}>
-            Create
+          <Button color="primary" onClick={handleUpdate}>
+            Update
           </Button>{" "}
           <Button color="secondary" onClick={toggle}>
             Cancel
@@ -130,4 +137,4 @@ setTaskName(value)
   );
 };
 
-export default CreateTask;
+export default EditTaskPopup;

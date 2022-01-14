@@ -1,8 +1,11 @@
-import React , {useState,useEffect}from "react";
+import React , {useState}from "react";
 import DeleteTask from "../modals/DeleteTask";
+import EditTask from "../modals/EditTask";
 
-const Card = ({ taskObj, index ,deleteTask}) => {
-   const [modal, setModal] = useState(false);
+const Card = ({ taskObj, index ,deleteTask,updateListArray}) => {
+   const [modalDelete, setModalDelete] = useState(false);
+   const [modalUpdate, setModalUpdate] = useState(false);
+   
   const colors = [
     {
       primaryColor: "#5D93E1",
@@ -26,9 +29,15 @@ const Card = ({ taskObj, index ,deleteTask}) => {
     },
   ];
  
-  const toggle = () => {
-    setModal(!modal);
+  const toggleDelete = () => {
+    setModalDelete(!modalDelete);
   };
+  const toggleUpdate = () => {
+    setModalUpdate(!modalUpdate);
+  };
+  const updateTask=(obj)=>{
+updateListArray(obj,index)
+  }
   return (
     <>
       <div className="card-wrapper">
@@ -60,30 +69,39 @@ const Card = ({ taskObj, index ,deleteTask}) => {
           </p>
 
           <div style={{ position: "absolute", right: "20px", bottom: "20px" }}>
-            {/* <i
+            <i
               className="far fa-edit"
               style={{
                 color: colors[index % 5].primaryColor,
                 cursor: "pointer",
-              }} 
-            ></i> */}
+              }}
+              onClick={() => setModalUpdate(true)}
+            ></i>
             <i
               className="fas fa-trash-alt"
               style={{
                 color: colors[index % 5].primaryColor,
                 cursor: "pointer",
               }}
-              onClick={() => setModal(true)}
+              onClick={() => setModalDelete(true)}
             ></i>
           </div>
         </div>
       </div>
+      <EditTask
+        toggle={toggleUpdate}
+        modal={modalUpdate}
+        updateTask={updateTask}
+        taskObj={taskObj}
+      ></EditTask>
       <DeleteTask
-        toggle={toggle}
-        modal={modal}
+        toggle={toggleDelete}
+        modal={modalDelete}
         index={index}
         deletetask={deleteTask}
+        taskObj={taskObj}
       ></DeleteTask>
+     
     </>
   );
 };

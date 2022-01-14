@@ -18,14 +18,17 @@ nav{
 }
 .header{
   margin-top: 8%;
+  display: flex;
 }
-
+.form-control{
+  margin: 10px;
+}
 .labelstorypoints{
   display: block;
   font: 1rem 'Fira Sans',sans-serif;
 }
 .labelstorypoints,.inputstorypoints{
-  margin: .4rem 0;
+  margin: .2rem 0;
 }
 
 /* 
@@ -115,4 +118,7 @@ nav{
 }
 .far{
 margin-right: 1rem;
+}
+.button{
+  margin: 2rem;
 }

@@ -5,7 +5,7 @@ const DeleteTask = ({ modal, toggle,index,deletetask}) => {
     deletetask(index);
   };
     return (
-      <div>
+      <>
         <Modal isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}>Delete Task</ModalHeader>
           <ModalBody>
@@ -20,7 +20,8 @@ const DeleteTask = ({ modal, toggle,index,deletetask}) => {
             </Button>
           </ModalFooter>
         </Modal>
-      </div>
+
+      </>
     );
 };
 
