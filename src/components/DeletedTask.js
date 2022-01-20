@@ -1,16 +1,14 @@
 import React from "react";
 import DeletedTaskBoard from "./DeleteBoard";
-import "../App.css"; 
+import {Droppable} from "react-beautiful-dnd";
+import "../App.css";
 
-const DeletedTask=()=> {
+const DeletedTask = () => {
   return (
-    <div>
-      
+    
       <DeletedTaskBoard></DeletedTaskBoard>
 
-      
-    </div>
   );
-}
+};
 
 export default DeletedTask;

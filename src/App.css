@@ -12,13 +12,14 @@ nav{
 .nav-links{
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content:flex-end;
   align-items: center;
   list-style: none;
 }
 .header{
   margin-top: 8%;
   display: flex;
+  justify-content: center;
 }
 .form-control{
   margin: 10px;
@@ -29,6 +30,9 @@ nav{
 }
 .labelstorypoints,.inputstorypoints{
   margin: .2rem 0;
+}
+.form-group{
+  margin: 8px;
 }
 
 /* 
@@ -76,27 +80,38 @@ nav{
 
 .card-wrapper{
   width: 270px; 
-  height: 200px; 
+  height: 180px; 
   box-shadow: 0px 3px 50px #A5A5A5;
   display: flex;
-  flex-direction: column;
-  margin: 3rem;
+  margin: 1rem;
+  background-color: blanchedalmond;
+  border: 1px solid;
+  border-radius: 30px;
+  /* justify-content:space-evenly ; */
+   transition: 0.2s;
+
+}
+.card-wrapper:hover {
+  box-shadow: 0 0 5px black;
+  transform: scale(1.03);
+  cursor: pointer;
 }
 
-.card-top{
+/* .card-top{
   width: 100%;
   height: 2%;
-}
+} */
 
 .task-holder{
   width: 100%;
-  height: 98%;
+  height: 100%;
   padding: 10px 10px;
   display : flex;
   flex-direction: column;
   position: relative;
-  margin: auto;
+  /* margin: auto; */
 }
+
 
 .card-header{
   margin-top: 10px;
@@ -106,9 +121,18 @@ nav{
   height: auto;
   padding: 1px 1px !important;
   text-align: center;
+  border: 1px solid;
 }
 
 .task-container{
+  height: 600px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #F6F7F8;
+  padding : 50px 100px;
+}
+.delete-task-container{
   height: 600px;
   width: 100%;
   display: flex;
@@ -121,4 +145,59 @@ margin-right: 1rem;
 }
 .button{
   margin: 2rem;
+}
+.container {
+  width: 95%;
+  height: 10px;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.todos {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height:fit-content;
+  padding: 15px;
+  background-color: grey;
+  border-radius: 1%;
+}
+.todos__heading {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+@media (max-width: 1100px) {
+  .todos {
+    width: 45%;
+  }
+}
+
+@media (max-width: 700px) {
+  .input {
+    width: 95%;
+  }
+  .container {
+    width: 95%;
+    flex-direction: column;
+  }
+  .todos {
+    width: 95%;
+    margin-bottom: 10px;
+  }
+}
+
+.dragactive {
+  background-color: rgb(247, 248, 248);
+}
+
+.dragcomplete {
+  background-color: rgb(255, 38, 0);
+}
+
+.drag {
+  box-shadow: 0 0 20px black;
 }

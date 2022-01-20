@@ -10,9 +10,6 @@ function Nav() {
     <nav>
       <h3>To-Do</h3>
       <ul className="nav-links">
-        <Link style={navStyle} to="/board">
-          <li>Board</li>
-        </Link>
         <Link style={navStyle} to="/deletedTask">
           <li>Deleted-Task</li>
         </Link>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalFooter, ModalBody } from "reactstrap";
-const DeleteTask = ({ modal, toggle,index,deletetask}) => {
+const DeleteTask = ({ modal, toggle,index,deletetask,taskObj}) => {
   const handleDelete = () => {
-    deletetask(index);
+    deletetask(index,taskObj.status);
   };
     return (
       <>
